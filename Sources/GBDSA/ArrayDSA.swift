@@ -10,7 +10,6 @@ import Foundation
 public class ArrayDSA {
     public init() { }
     public func removeEvenNumber(from list: [Int]) -> [Int] {
-        URLCache
         var listWithoutEvenNumber = [Int]()
         for value in list {
             if value % 2 != 0 {

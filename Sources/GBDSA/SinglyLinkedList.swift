@@ -271,15 +271,29 @@ public class SinglyLinkedList<T: Equatable> {
     
     @discardableResult
     public func removeTheDuplicateFromList() -> ListNode? {
-        var previous: ListNode? = nil
         var mainNode: ListNode? = head
-        
-        while mainNode != nil {
-            if mainNode?.value == previous?.value {
-                
+        var referenceNode: ListNode? = head
+        while referenceNode != nil {
+            if mainNode?.value == referenceNode?.next?.value {
+                referenceNode = referenceNode?.next
+            } else {
+                mainNode?.next = referenceNode?.next
+                mainNode = mainNode?.next
             }
         }
-        
+        return head
+    }
+    
+    @discardableResult
+    public func removeTheDuplicateFromListImproved() -> ListNode? {
+        var current: ListNode? = head
+        while current != nil && current?.next != nil {
+            if current?.value == current?.next?.value {
+                current?.next = current?.next?.next
+            } else {
+                current = current?.next
+            }
+        }
         return head
     }
     
