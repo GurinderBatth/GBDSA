@@ -23,8 +23,8 @@ node2.next = node3
 node3.next = node4
 node4.next = node5
 node5.next = node6
-node6.next = nil
-print(sll.detectLoopInLinkedList())
+node6.next = node3
+print(sll.startingNodeOfLoopInLinkedList()?.value)
 
 //let head = SinglyLinkedList(value: 10)
 //let second = SinglyLinkedList(value: 1)

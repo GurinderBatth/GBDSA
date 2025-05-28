@@ -398,6 +398,9 @@ public class SinglyLinkedList<T: Equatable & Comparable >  {
         return head
     }
     
+    
+    /// Detect if list contains loop
+    /// - Returns: true if loop presents false if not.
     @discardableResult
     public func detectLoopInLinkedList() -> Bool {
         var fastPointer = head
@@ -411,6 +414,31 @@ public class SinglyLinkedList<T: Equatable & Comparable >  {
             }
         }
         return false
+    }
+    
+    @discardableResult
+    public func startingNodeOfLoopInLinkedList() -> ListNode? {
+        var fastPointer = head
+        var slowPointer = head
+        
+        while fastPointer != nil && fastPointer?.next != nil {
+            fastPointer = fastPointer?.next?.next
+            slowPointer = slowPointer?.next
+            if slowPointer?.value == fastPointer?.value {
+                return getStartingNodeOfLoopInLinkedList(slowPointer)
+            }
+        }
+        return nil
+    }
+    
+    private func getStartingNodeOfLoopInLinkedList(_ slowNode: ListNode?) -> ListNode? {
+        var temp = head
+        var slowNode = slowNode
+        while temp?.value != slowNode?.value {
+            temp = temp?.next
+            slowNode = slowNode?.next
+        }
+        return temp
     }
     
     /// Display the entire Singly Linked list
