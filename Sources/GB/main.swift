@@ -9,22 +9,22 @@ import Foundation
 import GBDSA
 
 //MARK: - Singly Linked List
-typealias ListNode<T: Equatable> = SinglyLinkedList<T>.ListNode
+typealias ListNode<T: Equatable & Comparable> = SinglyLinkedList<T>.ListNode
 let sll = SinglyLinkedList<Int>()
-sll.insertAtLast(with: 1)
-sll.insertAtLast(with: 1)
-sll.insertAtLast(with: 2)
-sll.insertAtLast(with: 2)
-sll.insertAtLast(with: 2)
-sll.insertAtLast(with: 2)
-sll.insertAtLast(with: 3)
-sll.insertAtLast(with: 3)
-sll.insertAtLast(with: 3)
-sll.insertAtLast(with: 4)
-sll.insertAtLast(with: 4)
-sll.display()
-sll.removeTheDuplicateFromListImproved()
-sll.display()
+let node1 = ListNode(value: 1)
+let node2 = ListNode(value: 2)
+let node3 = ListNode(value: 3)
+let node4 = ListNode(value: 4)
+let node5 = ListNode(value: 5)
+let node6 = ListNode(value: 6)
+sll.head = node1
+node1.next = node2
+node2.next = node3
+node3.next = node4
+node4.next = node5
+node5.next = node6
+node6.next = nil
+print(sll.detectLoopInLinkedList())
 
 //let head = SinglyLinkedList(value: 10)
 //let second = SinglyLinkedList(value: 1)

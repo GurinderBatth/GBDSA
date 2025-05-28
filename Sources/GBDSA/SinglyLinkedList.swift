@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class SinglyLinkedList<T: Equatable> {
+public class SinglyLinkedList<T: Equatable & Comparable >  {
     
     /// Head of the Singly Linked List
     public var head: ListNode?
@@ -269,6 +269,9 @@ public class SinglyLinkedList<T: Equatable> {
         return mainNode
     }
     
+    
+    /// Remove the duplicates from the sorted list.
+    /// - Returns: head of the list with removed duplicates
     @discardableResult
     public func removeTheDuplicateFromList() -> ListNode? {
         var mainNode: ListNode? = head
@@ -284,6 +287,8 @@ public class SinglyLinkedList<T: Equatable> {
         return head
     }
     
+    /// Remove the duplicates from the sorted list.
+    /// - Returns: head of the list with removed duplicates
     @discardableResult
     public func removeTheDuplicateFromListImproved() -> ListNode? {
         var current: ListNode? = head
@@ -295,6 +300,117 @@ public class SinglyLinkedList<T: Equatable> {
             }
         }
         return head
+    }
+    
+    
+    /// Insert the new node with give value in sorted linked list
+    /// - Parameter value: New node with value
+    /// - Returns: head of the linked list
+    @discardableResult
+    public func insertANodeInSortedList(value: T) -> ListNode? {
+        let node = ListNode(value: value)
+        if head == nil {
+            head = node
+            return node
+        }
+        var current = head
+        while current != nil {
+            if current?.next == nil {
+                current?.next = node
+                node.next = nil
+                break
+            } else if value >= current!.value && value <= current!.next!.value {
+                node.next = current?.next
+                current?.next = node
+                break
+            } else if value < current!.value {
+                node.next = current
+                head = node
+                break
+            }
+            current = current?.next
+        }
+        return head
+    }
+    
+    /// Insert the new node with give value in sorted linked list
+    /// - Parameter value: New node with value
+    /// - Returns: head of the linked list
+    @discardableResult
+    public func insertANodeInSortedListImproved(value: T) -> ListNode? {
+        var current = head
+        var previous: ListNode? = nil
+        let newNode = ListNode(value: value)
+        while current != nil && current!.value < newNode.value {
+            previous = current
+            current = current?.next
+        }
+        if previous == nil || current == nil {
+            newNode.next = current
+            head = newNode
+        }
+        newNode.next = current
+        previous?.next = newNode
+        return head
+    }
+    
+    
+    /// Remove the node from the list
+    /// - Parameter value: the node with value to be removed
+    /// - Returns: head of the list
+    @discardableResult
+    public func remove(value: T) -> ListNode? {
+        var current = head
+        var previous: ListNode? = nil
+        if head?.value == value {
+            head = current?.next
+            return head
+        }
+        while current != nil {
+            if current?.value == value {
+                previous?.next = current?.next
+                current?.next = nil
+                return head
+            }
+            previous = current
+            current = current?.next
+        }
+        return head
+    }
+    
+    /// Remove the node from the list
+    /// - Parameter value: the node with value to be removed
+    /// - Returns: head of the list
+    @discardableResult
+    public func removeImproved(value: T) -> ListNode? {
+        var current = head
+        var previous: ListNode? = nil
+        if head?.value == value {
+            head = current?.next
+            return head
+        }
+        while current != nil  && current?.value != value {
+            previous = current
+            current = current?.next
+        }
+        if current == nil { return nil }
+        previous?.next = current?.next
+        return head
+    }
+    
+    @discardableResult
+    public func detectLoopInLinkedList() -> Bool {
+        var fastPointer = head
+        var slowPointer = head
+        
+        while fastPointer != nil && fastPointer?.next != nil {
+            fastPointer = fastPointer?.next?.next
+            slowPointer = slowPointer?.next
+            if slowPointer?.value == fastPointer?.value {
+                return true
+            }
+        }
+        return false
     }
     
     /// Display the entire Singly Linked list
