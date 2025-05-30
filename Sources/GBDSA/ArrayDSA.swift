@@ -9,6 +9,42 @@ import Foundation
 
 public class ArrayDSA {
     public init() { }
+    
+    public func findWithBinarySearch<T: Comparable & Equatable>(_ list: [T], data: T) -> Int? {
+        var minIndex = 0
+        var maxIndex = list.count
+        var mid = (minIndex + maxIndex) / 2
+        while minIndex < maxIndex - 1 {
+            let value = list[mid]
+            if value == data {
+                return mid
+            } else if data < value {
+                maxIndex = mid
+            } else if data > value {
+                minIndex = mid
+            }
+            mid = (minIndex + maxIndex) / 2
+        }
+        return nil
+    }
+    
+    public func binary(with array: [Int], value: Int) -> Int? {
+        var left = 0
+        var right = array.count - 1
+        
+        while left <= right {
+            let mid = (left + right) / 2
+            if array[mid] == value {
+                return mid
+            } else if value < array[mid] {
+                right = mid - 1
+            } else {
+                left = mid + 1
+            }
+        }
+        return nil
+    }
+    
     public func removeEvenNumber(from list: [Int]) -> [Int] {
         var listWithoutEvenNumber = [Int]()
         for value in list {

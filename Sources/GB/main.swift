@@ -9,22 +9,22 @@ import Foundation
 import GBDSA
 
 //MARK: - Singly Linked List
-typealias ListNode<T: Equatable & Comparable> = SinglyLinkedList<T>.ListNode
-let sll = SinglyLinkedList<Int>()
-let node1 = ListNode(value: 1)
-let node2 = ListNode(value: 2)
-let node3 = ListNode(value: 3)
-let node4 = ListNode(value: 4)
-let node5 = ListNode(value: 5)
-let node6 = ListNode(value: 6)
-sll.head = node1
-node1.next = node2
-node2.next = node3
-node3.next = node4
-node4.next = node5
-node5.next = node6
-node6.next = node3
-print(sll.startingNodeOfLoopInLinkedList()?.value)
+//typealias ListNode<T: Equatable & Comparable> = SinglyLinkedList<T>.ListNode
+//let sll = SinglyLinkedList<Int>()
+//let node1 = ListNode(value: 1)
+//let node2 = ListNode(value: 2)
+//let node3 = ListNode(value: 3)
+//let node4 = ListNode(value: 4)
+//let node5 = ListNode(value: 5)
+//let node6 = ListNode(value: 6)
+//sll.head = node1
+//node1.next = node2
+//node2.next = node3
+//node3.next = node4
+//node4.next = node5
+//node5.next = node6
+//node6.next = node3
+//print(sll.startingNodeOfLoopInLinkedList()?.value)
 
 //let head = SinglyLinkedList(value: 10)
 //let second = SinglyLinkedList(value: 1)
@@ -49,7 +49,7 @@ print(sll.startingNodeOfLoopInLinkedList()?.value)
 
 
 // MARK: - Array
-//let array = ArrayDSA()
+let array = ArrayDSA()
 //
 //print(array.reverseArrayImproved([1,3,4,5,24,42,3456,423,131,132]))
 //print(array.removeEvenNumber(from: [1,3,4,5,24,42,3456,423,131,132]))
@@ -60,3 +60,10 @@ print(sll.startingNodeOfLoopInLinkedList()?.value)
 //print(array.moveZerosAtTheEndWithForLoop(arrayToMoveZeros))
 //print(array.findMissingNumber([2, 4, 1, 8, 6, 3, 7]))
 //print(array.isPalindrome(string: "thataht"))
+// MARK: - Array Algorithms
+
+let numbers = [1, 5, 8, 18, 18, 18, 19, 23, 23, 24, 25, 27, 29, 32, 33, 33, 33, 36, 36, 38, 38, 38, 39, 40, 42, 43, 45, 46, 47, 47, 49, 50, 51, 52, 53, 53, 54, 56, 56, 56]
+
+let sortedArray = [3, 7, 10, 14, 18, 23, 29, 32, 38, 42, 47, 53, 59, 64, 68, 73, 79, 85, 91, 97, 104, 112, 119, 126, 134, 145, 157, 168, 182, 195]
+
+print(array.binary(with: sortedArray, value: 95))

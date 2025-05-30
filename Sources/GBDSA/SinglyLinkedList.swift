@@ -416,6 +416,9 @@ public class SinglyLinkedList<T: Equatable & Comparable >  {
         return false
     }
     
+    
+    /// Find the starting node of the looped linked list
+    /// - Returns: node where loop starts
     @discardableResult
     public func startingNodeOfLoopInLinkedList() -> ListNode? {
         var fastPointer = head
@@ -431,6 +434,12 @@ public class SinglyLinkedList<T: Equatable & Comparable >  {
         return nil
     }
     
+    func removeTheLoopFromList() {
+        
+    }
+    
+    /// Get the starting node of loop in the linked list
+    /// - Returns: node where loop starts
     private func getStartingNodeOfLoopInLinkedList(_ slowNode: ListNode?) -> ListNode? {
         var temp = head
         var slowNode = slowNode
@@ -440,6 +449,8 @@ public class SinglyLinkedList<T: Equatable & Comparable >  {
         }
         return temp
     }
+    
+    
     
     /// Display the entire Singly Linked list
     /// - Parameter showList: if true print the list in `value-->value-->value-->end` else prints every value in next line.
