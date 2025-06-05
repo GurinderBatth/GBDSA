@@ -13,7 +13,7 @@ public struct LinkedListAlgorithms {
     }
     
     public func mergeTwoSortedLinkedLists(_ head1: ListNode<Int>, _ head2: ListNode<Int>) -> ListNode<Int>? {
-        var dummyNode: ListNode? = ListNode(value: 0)
+        let dummyNode: ListNode? = ListNode(value: 0)
         var tailNode: ListNode? = dummyNode
         var head1: ListNode? = head1
         var head2: ListNode? = head2
