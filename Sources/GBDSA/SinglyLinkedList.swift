@@ -434,12 +434,33 @@ public class SinglyLinkedList<T: Equatable & Comparable >  {
         return nil
     }
     
-    func removeTheLoopFromList() {
-        
+    
+    /// Remove the Loop from the SinglyLinkedList
+    /// - Returns: head of the node
+    public func removeTheLoopFromList() -> ListNode? {
+        var fastPointer = head
+        var slowPointer = head
+        while fastPointer != nil && fastPointer?.next != nil {
+            fastPointer = fastPointer?.next?.next
+            slowPointer = slowPointer?.next
+            if fastPointer?.value == slowPointer?.value {
+                return removeLoop(slowPointer)
+            }
+        }
+        return nil
     }
     
-    /// Get the starting node of loop in the linked list
-    /// - Returns: node where loop starts
+    private func removeLoop(_ slowPointer: ListNode?) -> ListNode? {
+        var slowPointer = slowPointer
+        var tempPointer = head
+        while tempPointer?.next?.value != slowPointer?.next?.value {
+            slowPointer = slowPointer?.next
+            tempPointer = tempPointer?.next
+        }
+        slowPointer?.next = nil
+        return head
+    }
+    
     private func getStartingNodeOfLoopInLinkedList(_ slowNode: ListNode?) -> ListNode? {
         var temp = head
         var slowNode = slowNode
@@ -485,4 +506,13 @@ public class SinglyLinkedList<T: Equatable & Comparable >  {
         }
         return count
     }
+}
+
+public func display(_ head: ListNode<Int>?) {
+    var node = head
+    while node != nil {
+        print("\(String(describing: node?.value)) --> ", terminator: "")
+        node = node?.next
+    }
+    print("List Ended....")
 }

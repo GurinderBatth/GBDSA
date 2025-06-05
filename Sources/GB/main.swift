@@ -9,33 +9,41 @@ import Foundation
 import GBDSA
 
 //MARK: - Singly Linked List
-//typealias ListNode<T: Equatable & Comparable> = SinglyLinkedList<T>.ListNode
-//let sll = SinglyLinkedList<Int>()
-//let node1 = ListNode(value: 1)
-//let node2 = ListNode(value: 2)
-//let node3 = ListNode(value: 3)
-//let node4 = ListNode(value: 4)
-//let node5 = ListNode(value: 5)
-//let node6 = ListNode(value: 6)
-//sll.head = node1
-//node1.next = node2
-//node2.next = node3
-//node3.next = node4
-//node4.next = node5
-//node5.next = node6
-//node6.next = node3
-//print(sll.startingNodeOfLoopInLinkedList()?.value)
+typealias ListNode<T: Equatable & Comparable> = SinglyLinkedList<T>.ListNode
+let sll = SinglyLinkedList<Int>()
+let node1 = ListNode(value: 1)
+let node5 = ListNode(value: 5)
+let node11 = ListNode(value: 11)
+let node17 = ListNode(value: 17)
+let node25 = ListNode(value: 25)
+let node29 = ListNode(value: 29)
+sll.head = node1
+node1.next = node5
+node5.next = node11
+node11.next = node17
+node17.next = node25
+node25.next = node29
+node29.next = nil
 
-//let head = SinglyLinkedList(value: 10)
-//let second = SinglyLinkedList(value: 1)
-//let third = SinglyLinkedList(value: 8)
-//let fourth = SinglyLinkedList(value: 11)
-//head.next = second
-//second.next = third
-//third.next = fourth
-//
-//printLinkedList(head: head)
-//
+let sll2 = SinglyLinkedList<Int>()
+sll2.head = node2
+let node2 = ListNode(value: 2)
+let node4 = ListNode(value: 4)
+let node10 = ListNode(value: 10)
+let node_17 = ListNode(value: 17)
+let node26 = ListNode(value: 26)
+let node30 = ListNode(value: 30)
+
+node2.next = node4
+node4.next = node10
+node10.next = node_17
+node_17.next = node26
+node26.next = node30
+node30.next = nil
+
+let mergedListHead = LinkedListAlgorithms().mergeTwoSortedLinkedLists(node1, node2)
+display(mergedListHead)
+sll.display()
 
 //let sll = MainSinglyLinkedList<Int>()
 //sll.head = ListNode(value: 10)
@@ -62,8 +70,8 @@ let array = ArrayDSA()
 //print(array.isPalindrome(string: "thataht"))
 // MARK: - Array Algorithms
 
-let numbers = [1, 5, 8, 18, 18, 18, 19, 23, 23, 24, 25, 27, 29, 32, 33, 33, 33, 36, 36, 38, 38, 38, 39, 40, 42, 43, 45, 46, 47, 47, 49, 50, 51, 52, 53, 53, 54, 56, 56, 56]
-
-let sortedArray = [3, 7, 10, 14, 18, 23, 29, 32, 38, 42, 47, 53, 59, 64, 68, 73, 79, 85, 91, 97, 104, 112, 119, 126, 134, 145, 157, 168, 182, 195]
-
-print(array.binary(with: sortedArray, value: 95))
+//let numbers = [1, 5, 8, 18, 18, 18, 19, 23, 23, 24, 25, 27, 29, 32, 33, 33, 33, 36, 36, 38, 38, 38, 39, 40, 42, 43, 45, 46, 47, 47, 49, 50, 51, 52, 53, 53, 54, 56, 56, 56]
+//
+//let sortedArray = [3, 7, 10, 14, 18, 23, 29, 32, 38, 42, 47, 53, 59, 64, 68, 73, 79, 85, 91, 97, 104, 112, 119, 126, 134, 145, 157, 168, 182, 195]
+//
+//print(array.binary(with: sortedArray, value: 95))
