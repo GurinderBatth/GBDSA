@@ -13,35 +13,35 @@ typealias ListNode<T: Equatable & Comparable> = SinglyLinkedList<T>.ListNode
 let sll = SinglyLinkedList<Int>()
 let node1 = ListNode(value: 1)
 let node5 = ListNode(value: 5)
-let node11 = ListNode(value: 11)
-let node17 = ListNode(value: 17)
-let node25 = ListNode(value: 25)
-let node29 = ListNode(value: 29)
+//let node11 = ListNode(value: 11)
+//let node17 = ListNode(value: 17)
+//let node25 = ListNode(value: 25)
+//let node29 = ListNode(value: 29)
 sll.head = node1
 node1.next = node5
-node5.next = node11
-node11.next = node17
-node17.next = node25
-node25.next = node29
-node29.next = nil
+//node5.next = node11
+//node11.next = node17
+//node17.next = node25
+//node25.next = node29
+//node29.next = nil
 
 let sll2 = SinglyLinkedList<Int>()
 sll2.head = node2
 let node2 = ListNode(value: 2)
 let node4 = ListNode(value: 4)
-let node10 = ListNode(value: 10)
-let node_17 = ListNode(value: 17)
-let node26 = ListNode(value: 26)
-let node30 = ListNode(value: 30)
+//let node10 = ListNode(value: 10)
+//let node_17 = ListNode(value: 17)
+//let node26 = ListNode(value: 26)
+//let node30 = ListNode(value: 30)
 
 node2.next = node4
-node4.next = node10
-node10.next = node_17
-node_17.next = node26
-node26.next = node30
-node30.next = nil
+//node4.next = node10
+//node10.next = node_17
+//node_17.next = node26
+//node26.next = node30
+//node30.next = nil
 
-let mergedListHead = LinkedListAlgorithms().mergeTwoSortedLinkedLists(node1, node2)
+let mergedListHead = LinkedListAlgorithms().addTwoLinkedList(node1, node2)
 display(mergedListHead)
 sll.display()
 
